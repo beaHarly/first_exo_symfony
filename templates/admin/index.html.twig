@@ -1,0 +1,38 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    Adminstration 
+{% endblock %}
+{% block body %}
+    <div class="contenaire-fluid ">
+        <div class="mx-5 my-3 ">
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+        <h1 class="text-center">Gestions des recettes</h1>
+        <a href="{{ path('admin_create') }}" class="btn btn-success mb-3">Ajouter</a>
+        
+        <table class="table-danger table-bordered border-danger table-striped ">
+            <thead>
+                <tr scope="row">
+                  <th scope="col-4" class="text-center">ID</th>
+                  <th scope="col-4" class="text-center">TTTLE</th>
+                  <th scope="col-4" class="text-center" colspan="2">ACTION</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for recette in recettes %}
+                    <tr>
+                        <td class="col-3 text-center">{{ recette.id }}</td>
+                        <td class="col-4 text-center">{{ recette.title }}</td>
+                        <td class="col-2 text-center"> <a href="{{ path('admin_edit', {id: recette.id}) }}" class="btn btn-warning stretched-link">Editer</a></td>
+                        <td class="col-2 text-center"> <button class="btn btn-danger" >Supprimer</button></td>
+                    </tr>
+                {% endfor %}
+            </tbody>   
+        </table>
+    </div>
+    </div>
+{% endblock  %}

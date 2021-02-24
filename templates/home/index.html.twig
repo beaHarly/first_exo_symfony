@@ -1,0 +1,41 @@
+
+{% extends "base.html.twig" %}
+
+{% block title %}Homepage {% endblock %}
+
+{%  block body %}
+
+    <div class="container.fluid">
+       <h1 class="text-center"> Bienvenue sur notre site!</h1>
+
+{#        
+    <h6 class="card-subtitle mb-2 text-muted">{{ recette.creatAt|format_datetime('full', 'full', locale='fr') }}</h6>      
+#}
+
+	    {% for message in app.flashes('success') %}
+		    <div class="alert alert-success">
+			{{ message }}
+		</div>
+	{% endfor %}
+
+	<div class="row mt-4">
+		{% for recette in recettes %}
+			<div class="col-md-4">
+				<div class="card" style="width: 18rem;">
+						
+                    <img src="..." class="card-img-top" alt="...">
+
+					<div class="card-body">
+						<h5 class="card-title">{{ recette.title }}</h5>
+						<h6 class="card-subtitle mb-2 text-muted">{{ recette.createdAt|format_datetime() }}</h6>
+						<p class="card-text">{{recette.resumer}}</p>
+
+						<a href="{{ path('recette_show', {id: recette.id}) }}" class="card-link btn btn-primary">Voir la recette</a>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+	</div>
+
+{% endblock %}

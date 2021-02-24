@@ -1,0 +1,35 @@
+{{ form_start(formRecette) }}
+<div class="col-md-3">
+   {{ form_row(formRecette.title) }}
+</div>
+</br>
+<div class="row">
+   <div class="col-md-4">
+      {{ form_row(formRecette.time) }}
+   </div>
+   </br>
+   <div class="col-md-4">
+      {{ form_row(formRecette.peoples) }}
+   </div>
+</div>
+</br>
+<div class="col-md-8">
+   {{ form_row(formRecette.ingredients) }}
+</div>
+</br>
+<div class="col-md-8">
+   {{ form_row(formRecette.preparation) }}
+</div>
+</br>
+<div class="col-md-8">
+   {{ form_row(formRecette.resumer) }}
+</div>
+</br>
+<div class="col-md-2">
+   {{ form_row(formRecette.createdAt) }}
+</div>
+</br>
+{{ form_rest(formRecette) }}
+ <input type="reset" class="btn btn-warning" value="Annuler">
+ <input type="submit" class="btn btn-success" value="Enregistrer">
+{{ form_end(formRecette) }}
